@@ -7,8 +7,10 @@ terraform {
     }
   }
 }
+
+
 variable "openstack_auth_url" {
-  default = "http://9.11.93.4:5000"
+  default = "http://127.0.0.1:5000"
 }
 
 variable "openstack_project_id" {
@@ -23,10 +25,9 @@ variable "openstack_password" {
 }
 
 provider "openstack" {
-    auth_url  = var.openstack_auth_url
-  project_id = var.openstack_project_id
-  project_name = var.openstack_project_name
-  username  = "admin"
+  auth_url  = var.openstack_auth_url
+  tenant_name  = var.openstack_project_name
+  user_name  = "admin"
   password  = var.openstack_password
   # Autres configurations du fournisseur OpenStack...
 }
